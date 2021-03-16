@@ -13,7 +13,6 @@
        'Guessing is part of life'
      ];
      this.activePhrase = null;
-     // this.phrase = new Phrase(this.activePhrase)
    }
 
    // this method randomly retrieves one of the phrases stored in the phrases array and returns it.
@@ -36,8 +35,9 @@
      var li = document.getElementsByClassName("tries");
      for(let i = 0; i<li.length; i++){
        if (li[i].firstElementChild.src === "file:///Users/bartsmolders/Documents/GitHub/OOP-Game-Show-App/oop_game-v2/images/liveHeart.png"){
-         li[i].firstElementChild.src = "images/lostHeart.png"
-         if (i === 4){
+         li[i].firstElementChild.src = "images/lostHeart.png";
+         this.missed ++;
+         if (this.missed === 5){
            this.gameOver('lose')
          }
          break;
@@ -58,6 +58,7 @@
        screenOverlay.className = 'win';
        screenOverlay.style.display = 'flex';
      }
+     this.missed = 0
    }
 
    // this method checks for if the player wins
