@@ -13,6 +13,7 @@
        'Guessing is part of life'
      ];
      this.activePhrase = null;
+     // this.phrase = new Phrase(this.activePhrase)
    }
 
    // this method randomly retrieves one of the phrases stored in the phrases array and returns it.
