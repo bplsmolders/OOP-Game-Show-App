@@ -28,7 +28,7 @@
      })
    }
 
-   // this method checks if a chosen letter is in the phrases.
+   // this method checks if a chosen letter is in the phrases and returns true or false
    checkLetter(choice){
       let lettersArr = this.phrase.split('');
       if(lettersArr.filter(letter => letter === choice).length === 0){

@@ -4,6 +4,7 @@
 
  const game = new Game();
 
+ //the function underneath is activated when the start button is clicked. Resets board and starts new game.
  document.getElementById('btn__reset').addEventListener('click', function(){
     let wrongButtons = document.getElementsByClassName('wrong');
     const amount = wrongButtons.length;
@@ -12,18 +13,16 @@
       wrongButtons[0].className = 'key';
     }
 
-    let keyButtons = document.getElementsByClassName('key');
-    const amount2 = keyButtons.length;
+    let chosenButtons = document.getElementsByClassName('chosen');
+    const amount2 = chosenButtons.length;
     for(let i =0; i<amount2; i++){
-      keyButtons[i].disabled = false;
-      keyButtons[i].className = 'key';
-      keyButtons[i].style.backgroundColor = '';
+      chosenButtons[0].disabled = false;
+      chosenButtons[0].className = 'key';
     }
 
-
     let phraseDisplay = document.getElementById('phrase').firstElementChild;
-    let length = phraseDisplay.childElementCount
-    for(let i=0; i < length; i++){
+    let amount3 = phraseDisplay.childElementCount
+    for(let i=0; i < amount3; i++){
       phraseDisplay.removeChild(phraseDisplay.lastElementChild);
     }
 
@@ -36,16 +35,19 @@
     game.startGame();
  });
 
+ //the function underneath is activated when keybuttons are clicked
  document.getElementById('qwerty').addEventListener('click', (event) => {
    if(event.target.className === 'key'){
-     game.handleInteraction(event)
+     game.handleInteraction(event);
    }
  });
 
+ //the function underneath is activated when the user presses down a letter on the keyboard.
  document.addEventListener('keydown', (event) => {
-   const regex = /\w/
-   if(regex.test(event.textContent)){
-      console.log(event.key)
-      game.handleInteraction(event.key)
-    }
+   const buttons = document.querySelectorAll('button');
+   for(let i = 0 ; i<buttons.length; i++){
+     if(buttons[i].textContent === event.key && buttons[i].disabled === false){
+       game.keyHandleInteraction(buttons[i])
+     }
+   }
  });

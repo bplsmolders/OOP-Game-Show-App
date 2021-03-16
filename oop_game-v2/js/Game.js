@@ -67,17 +67,29 @@
    }
 
 
-   // this method controls user interaction.
+   // this method controls user interaction based on clicks
    handleInteraction(event){
      event.target.disabled = true;
-
      if(new Phrase(this.activePhrase).checkLetter(event.target.textContent) === true){
        new Phrase(this.activePhrase).showMatchedLetter(event.target.textContent)
        this.checkForWin();
-       event.target.style.backgroundColor = 'lightgreen';
+       event.target.className ='chosen';
      } else {
        this.removeLife();
        event.target.className ='wrong';
+     }
+   }
+
+   // this method controls user interaction based on keyboard actions
+   keyHandleInteraction(button){
+     button.disabled = true;
+     if(new Phrase(this.activePhrase).checkLetter(button.textContent) === true){
+       new Phrase(this.activePhrase).showMatchedLetter(button.textContent)
+       this.checkForWin();
+       button.className ='chosen';
+     } else {
+       this.removeLife();
+       button.className ='wrong';
      }
    }
  }
