@@ -63,6 +63,9 @@ button {
 #btn__reset {
 	width: 200px;
 	margin: 0 auto;
+  background-color: green;
+  color: white;
+  box-shadow: 0px 2px pink;;
 }
 
 .main-container {
@@ -177,10 +180,16 @@ button {
 
 .title {
   color: #FFF;
+  font-weight: bold;
+  font-size: 100px;
+  text-decoration:underline;
+  text-shadow: -6px 6px blue;
 }
 
 .start {
   background-color: #3a3f58;
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 250% 100%;
 }
 
 .start a {
