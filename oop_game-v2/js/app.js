@@ -2,10 +2,12 @@
  * Project 4 - OOP Game App
  * app.js */
 
- const game = new Game();
+ let game;
 
  //the function underneath is activated when the start button is clicked. Resets board and starts new game.
  document.getElementById('btn__reset').addEventListener('click', function(){
+    game = new Game();
+
     let wrongButtons = document.getElementsByClassName('wrong');
     const amount = wrongButtons.length;
     for(let i =0; i<amount; i++){
@@ -28,7 +30,7 @@
 
     var tries = document.getElementsByClassName("tries");
     for(let i = 0; i<tries.length; i++){
-      if (tries[i].firstElementChild.src === "file:///Users/bartsmolders/Documents/GitHub/OOP-Game-Show-App/oop_game-v2/images/lostHeart.png"){
+      if (tries[i].firstElementChild.getAttribute('src') === "images/lostHeart.png"){
         tries[i].firstElementChild.src = "images/liveHeart.png";
       }
     }
