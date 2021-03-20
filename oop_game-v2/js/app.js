@@ -34,13 +34,14 @@
         tries[i].firstElementChild.src = "images/liveHeart.png";
       }
     }
+
     game.startGame();
  });
 
  //the function underneath is activated when keybuttons are clicked
  document.getElementById('qwerty').addEventListener('click', (event) => {
    if(event.target.className === 'key'){
-     game.handleInteraction(event);
+     game.handleInteraction(event.target);
    }
  });
 
@@ -49,7 +50,7 @@
    const buttons = document.querySelectorAll('button');
    for(let i = 0 ; i<buttons.length; i++){
      if(buttons[i].textContent === event.key && buttons[i].disabled === false){
-       game.keyHandleInteraction(buttons[i])
+       game.handleInteraction(buttons[i])
      }
    }
  });
